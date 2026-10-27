@@ -11,9 +11,2245 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+/* ==========================================================================
+   YẾN SÀO TÂN XUÂN - E-COMMERCE STYLESHEET (ALL-IN-ONE)
+   Màu chủ đạo: Đỏ Hoàng Gia (#8B0000) | Nhấn: Vàng Kim (#D4AF37) | Nền: Kem (#FFFDF9)
+   ========================================================================== */
 
+:root {
+  --color-primary: #8B0000;
+  --color-primary-dark: #630000;
+  --color-primary-light: #FDF2F2;
+  --color-accent: #D4AF37;
+  --color-accent-dark: #B59024;
+  --color-accent-light: #FCF8EC;
+  --color-bg: #FFFDF9;
+  --color-surface: #FFFFFF;
+  --color-text: #222222;
+  --color-text-muted: #555555;
+  --color-border: #E8DFCE;
+  --color-success: #1E7E34;
+  --color-zalo: #0068FF;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --shadow-sm: 0 2px 8px rgba(139, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(34, 34, 34, 0.08);
+  --shadow-lg: 0 16px 40px rgba(139, 0, 0, 0.14);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET & BASE */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #E2C15A 0%, #D4AF37 50%, #B89121 100%);
+  color: #222222;
+  border-color: #D4AF37;
+  font-weight: 700;
+}
+
+.btn-gold:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+.btn-outline-red {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-red:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-outline-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--color-accent);
+  color: #222222;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* 1. TOPBAR */
+.topbar {
+  background-color: var(--color-primary-dark);
+  color: #FFFDF9;
+  font-size: 0.84rem;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.topbar-marquee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-gold {
+  background-color: var(--color-accent);
+  color: #222222;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+}
+
+.topbar-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+.topbar-zalo {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--color-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.topbar-zalo:hover {
+  background: var(--color-accent);
+  color: #222;
+}
+
+/* 2. MAIN HEADER */
+.site-header {
+  background-color: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+}
+
+.brand-tagline {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Search Box */
+.header-search {
+  flex: 1;
+  max-width: 460px;
+  position: relative;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 50px;
+  background-color: var(--color-bg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.search-input-wrap:focus-within {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+  border-color: var(--color-primary);
+}
+
+.search-input-wrap input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  outline: none;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.clear-search-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.search-submit-btn {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-submit-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Live Search Suggestions Dropdown */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 950;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: var(--color-accent-light);
+}
+
+.suggestion-item img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.suggestion-info {
+  flex: 1;
+}
+
+.suggestion-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.suggestion-meta {
+  font-size: 0.78rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-hotline,
+.action-zalo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.action-hotline:hover,
+.action-zalo:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-light);
+}
+
+.action-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zalo-badge {
+  background-color: var(--color-zalo);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 6px 7px;
+  border-radius: 50%;
+}
+
+.action-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.action-label {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.action-value {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.action-cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: 1.5px solid var(--color-accent);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.action-cart:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.cart-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-accent);
+  color: #222222;
+  font-size: 0.72rem;
+  font-weight: 800;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* 3. MEGA MENU NAVIGATION */
+.mega-nav {
+  background-color: var(--color-primary);
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 13px;
+  color: #FFFDF9;
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: rgba(212, 175, 55, 0.18);
+  color: var(--color-accent);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 270px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transition);
+  z-index: 920;
+  padding: 8px 0;
+}
+
+.nav-item.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-header {
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom: 1px dashed var(--color-border);
+  margin-bottom: 4px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-primary);
+  padding-left: 20px;
+}
+
+/* 4. HERO SECTION & TRUST BADGES */
+.hero-section {
+  background: radial-gradient(circle at top right, #9E1B1B 0%, #780000 55%, #4D0000 100%);
+  color: #FFFDF9;
+  padding: 36px 0 32px;
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--color-accent);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.gold-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 3.3vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+
+.hero-title span {
+  color: var(--color-accent);
+  font-size: 0.85em;
+  display: block;
+  margin-top: 6px;
+}
+
+.hero-desc {
+  color: rgba(255, 253, 249, 0.9);
+  font-size: 0.98rem;
+  margin-bottom: 22px;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-card-showcase {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.hero-card-showcase img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+}
+
+.sample-media-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #FFE082;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-floating-badge {
+  background: rgba(34, 34, 34, 0.92);
+  border-top: 1px solid var(--color-accent);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-floating-badge strong {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.hero-floating-badge span {
+  font-size: 0.82rem;
+  color: #FFFDF9;
+}
+
+/* 4 Trust Badges */
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 14px;
+  border-radius: var(--radius-md);
+}
+
+.trust-icon {
+  flex-shrink: 0;
+  background: rgba(212, 175, 55, 0.15);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-text strong {
+  display: block;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.trust-text p {
+  font-size: 0.8rem;
+  color: rgba(255, 253, 249, 0.85);
+  line-height: 1.4;
+}
+
+/* 5. CATALOG & PRODUCT GRID SECTION */
+.catalog-section {
+  padding: 44px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.section-heading.text-center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.section-note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.section-note a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Quick Needs Pills */
+.quick-needs-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.quick-needs-label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  margin-right: 4px;
+}
+
+.quick-pill {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quick-pill:hover,
+.quick-pill.active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+/* Catalog Layout: Sidebar + Main */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  position: sticky;
+  top: 90px;
+}
+
+.filter-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-sidebar-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.close-filter-mobile {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.filter-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+  color: var(--color-primary);
+}
+
+.radio-label input,
+.checkbox-label input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.sidebar-support-box {
+  margin-top: 20px;
+  background: linear-gradient(160deg, #8B0000 0%, #5B0000 100%);
+  color: #FFFDF9;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-accent);
+  text-align: center;
+}
+
+.support-badge {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.25);
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.sidebar-support-box h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--color-accent);
+}
+
+.sidebar-support-box p {
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  color: rgba(255, 253, 249, 0.9);
+}
+
+.support-phone-link {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.84rem;
+  color: #FFFDF9;
+}
+
+/* Catalog Toolbar */
+.catalog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-filter-mobile {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.result-counter {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.result-counter strong {
+  color: var(--color-primary);
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.sort-select {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.data-transparency-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--color-accent-light);
+  border: 1px solid var(--color-accent);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--color-text);
+  margin-bottom: 18px;
+}
+
+.data-transparency-banner svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.data-transparency-banner code {
+  background: rgba(139, 0, 0, 0.1);
+  color: var(--color-primary);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* PRODUCT GRID: 4 columns on Desktop, 2 on Tablet/Mobile */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.product-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.product-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.product-thumb-wrap {
+  position: relative;
+  padding-top: 78%;
+  overflow: hidden;
+  background-color: #F7F3EB;
+  cursor: pointer;
+}
+
+.product-thumb-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.product-card:hover .product-thumb-wrap img {
+  transform: scale(1.06);
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent);
+  z-index: 2;
+}
+
+.product-sample-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(34, 34, 34, 0.72);
+  color: #FFE082;
+  font-size: 0.65rem;
+  padding: 3px 6px;
+  text-align: center;
+  z-index: 2;
+}
+
+.product-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-cat-tag {
+  font-size: 0.73rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+
+.product-title {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-title:hover {
+  color: var(--color-primary);
+}
+
+.product-spec {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: 5px 8px;
+  border-radius: 4px;
+  border-left: 3px solid var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.product-price-box {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+  margin-bottom: 12px;
+}
+
+.price-value {
+  display: block;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.price-note {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.btn-card-detail {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-card-detail:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-card-cart {
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-accent);
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-card-cart:hover {
+  background: var(--color-accent);
+  color: #222;
+}
+
+.btn-card-zalo {
+  grid-column: span 2;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-card-zalo:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Empty Search State */
+.empty-search-state {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.empty-search-state h3 {
+  font-family: var(--font-heading);
+  margin-bottom: 8px;
+}
+
+.empty-search-state p {
+  max-width: 520px;
+  margin: 0 auto 18px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+/* 6. SEO ARTICLE BLOCK */
+.seo-article-section {
+  padding: 20px 0 48px;
+}
+
+.seo-article-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.seo-header {
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.seo-content-wrapper {
+  max-height: 360px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease;
+}
+
+.seo-content-wrapper.expanded {
+  max-height: 3500px;
+}
+
+.seo-content-wrapper:not(.expanded)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFFFFF 90%);
+  pointer-events: none;
+}
+
+.lead-paragraph {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.seo-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.seo-content-wrapper h3 {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  color: var(--color-primary);
+  margin: 18px 0 10px;
+}
+
+.seo-list {
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.seo-list li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+/* Dosage Table */
+.table-responsive {
+  overflow-x: auto;
+  margin: 14px 0 22px;
+}
+
+.dosage-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dosage-table th,
+.dosage-table td {
+  border: 1px solid var(--color-border);
+  padding: 11px 14px;
+  text-align: left;
+}
+
+.dosage-table th {
+  background-color: var(--color-primary);
+  color: #FFFDF9;
+  font-weight: 600;
+}
+
+.dosage-table tr:nth-child(even) {
+  background-color: var(--color-bg);
+}
+
+.golden-time-box {
+  background-color: var(--color-accent-light);
+  border-left: 4px solid var(--color-accent);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+
+.golden-time-box h4 {
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.compare-box {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.compare-box.good {
+  background-color: #F4FBF6;
+  border-color: #A3D9B1;
+}
+
+.compare-box.bad {
+  background-color: #FDF4F4;
+  border-color: #E6B0B0;
+}
+
+.compare-box h4 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.compare-box ul {
+  list-style: disc;
+  padding-left: 18px;
+  font-size: 0.88rem;
+}
+
+.compare-box li {
+  margin-bottom: 6px;
+}
+
+.seo-toggle-wrap {
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* 7. FAQ ACCORDION */
+.faq-section {
+  padding: 20px 0 52px;
+}
+
+.faq-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faq-item.active {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.faq-item.active .faq-question {
+  color: var(--color-primary);
+  background-color: var(--color-accent-light);
+}
+
+.faq-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer-inner {
+  padding: 16px 20px;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-answer-inner p + p {
+  margin-top: 8px;
+}
+
+.faq-answer-inner ul,
+.faq-answer-inner ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.faq-answer-inner ul {
+  list-style: disc;
+}
+
+.faq-answer-inner ol {
+  list-style: decimal;
+}
+
+.faq-answer-inner li {
+  margin-bottom: 6px;
+}
+
+/* 8. ORDER GUIDE SECTION */
+.order-guide-section {
+  padding-bottom: 52px;
+}
+
+.order-guide-box {
+  background: linear-gradient(135deg, #8B0000 0%, #560000 100%);
+  color: #FFFDF9;
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  border: 2px solid var(--color-accent);
+}
+
+.order-guide-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  margin-bottom: 8px;
+}
+
+.order-guide-info > p {
+  color: rgba(255, 253, 249, 0.88);
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 18px;
+  border-radius: var(--radius-md);
+}
+
+.step-num {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #222;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+}
+
+.step-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.step-card p {
+  font-size: 0.86rem;
+  color: rgba(255, 253, 249, 0.9);
+}
+
+.direct-contact-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* 9. FOOTER */
+.site-footer {
+  background-color: #1B1111;
+  color: #E2D9C8;
+  padding: 48px 0 24px;
+  border-top: 4px solid var(--color-accent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 0.9fr 1.1fr;
+  gap: 28px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-logo .brand-name {
+  color: var(--color-accent);
+  display: block;
+}
+
+.footer-logo .brand-tagline {
+  color: #E2D9C8;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footer-about {
+  font-size: 0.86rem;
+  margin-bottom: 14px;
+  color: #C4B9A5;
+}
+
+.footer-contact-list li {
+  font-size: 0.85rem;
+  margin-bottom: 7px;
+}
+
+.highlight-phone {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.96rem;
+}
+
+.placeholder-tag {
+  background: rgba(212, 175, 55, 0.14);
+  color: #FFE082;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+}
+
+.footer-col h4 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+.footer-links li {
+  margin-bottom: 9px;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: #D0C6B4;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+  padding-left: 4px;
+}
+
+.footer-cta-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 16px;
+  border-radius: var(--radius-md);
+}
+
+.footer-cta-card p {
+  font-size: 0.84rem;
+  margin-bottom: 8px;
+}
+
+.footer-big-phone {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.footer-hours {
+  display: block;
+  font-size: 0.76rem;
+  color: #B8AD9B;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.84rem;
+  color: #A99E8D;
+}
+
+.footer-bottom a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* 10. MODAL CHI TIẾT SẢN PHẨM */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-backdrop[hidden] {
+  display: none !important;
+}
+
+.product-modal {
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  max-width: 880px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+.modal-image-col img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.modal-sample-caption {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.74rem;
+  color: var(--color-primary);
+  text-align: center;
+  background: var(--color-accent-light);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.modal-code-badge {
+  display: inline-block;
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.modal-price-box {
+  background: var(--color-primary-light);
+  border-left: 4px solid var(--color-primary);
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.modal-price-box strong {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  display: block;
+}
+
+.modal-info-block {
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+}
+
+.modal-info-block h4 {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.modal-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* 11. CART DRAWER & MOBILE NAV DRAWER */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1050;
+}
+
+.drawer-backdrop[hidden] {
+  display: none !important;
+}
+
+.cart-drawer,
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 410px;
+  background: var(--color-surface);
+  z-index: 1060;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
+}
+
+.cart-drawer {
+  right: 0;
+  transform: translateX(100%);
+  border-left: 2px solid var(--color-accent);
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-drawer {
+  left: 0;
+  max-width: 320px;
+  transform: translateX(-100%);
+}
+
+.mobile-nav-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-drawer-header,
+.mobile-nav-header {
+  background: var(--color-primary);
+  color: #FFFDF9;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.cart-drawer-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+}
+
+.cart-drawer-header p {
+  font-size: 0.76rem;
+  color: rgba(255, 253, 249, 0.85);
+}
+
+.drawer-close-btn {
+  background: none;
+  border: none;
+  color: #FFFDF9;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.cart-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  background: var(--color-bg);
+}
+
+.cart-item img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-bottom: 2px;
+}
+
+.cart-item-spec {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.cart-qty-controls {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: #FFF;
+}
+
+.cart-qty-btn {
+  border: none;
+  background: none;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cart-qty-val {
+  padding: 0 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.76rem;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.cart-drawer-footer {
+  padding: 14px 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.cart-message-preview label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cart-message-preview input,
+.cart-message-preview textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  background: #FFF;
+}
+
+.cart-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-clear-cart {
+  background: none;
+  border: none;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Mobile Nav Accordion */
+.mobile-nav-body {
+  padding: 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mobile-menu-list li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-accordion-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 11px 6px;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.mobile-sub-toggle {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobile-sub-list {
+  display: none;
+  padding: 4px 0 10px 14px;
+  background: var(--color-bg);
+}
+
+.mobile-accordion-item.open .mobile-sub-list {
+  display: block;
+}
+
+.mobile-sub-list a {
+  display: block;
+  padding: 7px 6px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.mobile-nav-cta {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 12. STICKY FLOATING ACTION BUTTONS */
+.floating-cta-group {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.float-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.float-zalo {
+  background: var(--color-zalo);
+  border: 1.5px solid #FFFFFF;
+}
+
+.float-icon {
+  background: #FFFFFF;
+  color: var(--color-zalo);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
+
+.float-phone {
+  background: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  animation: gentleShake 2.8s infinite ease-in-out;
+}
+
+.pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50px;
+  border: 2px solid var(--color-accent);
+  animation: pulseRing 1.8s infinite;
+  pointer-events: none;
+}
+
+@keyframes gentleShake {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  84% { transform: rotate(-4deg) scale(1.03); }
+  88% { transform: rotate(4deg) scale(1.03); }
+  92% { transform: rotate(-3deg); }
+  96% { transform: rotate(3deg); }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(1.14); opacity: 0; }
+}
+
+/* TOAST NOTIFICATION */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 350px;
+}
+
+.toast-msg {
+  background: #222222;
+  color: #FFFDF9;
+  border-left: 4px solid var(--color-accent);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.85rem;
+  animation: fadeInUp 0.25s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .trust-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .mega-nav,
+  .action-hotline,
+  .action-zalo {
+    display: none;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+  }
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+  .filter-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 1080;
+    border-radius: 0;
+    overflow-y: auto;
+    transform: translateX(-105%);
+    transition: transform 0.3s ease;
+  }
+  .filter-sidebar.open {
+    transform: translateX(0);
+  }
+  .close-filter-mobile {
+    display: block;
+  }
+  .btn-filter-mobile {
+    display: inline-flex;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .seo-two-cols,
+  .compare-grid,
+  .steps-grid,
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .topbar-contact span:first-child {
+    display: none;
+  }
+  .brand-name {
+    font-size: 1.15rem;
+  }
+  .brand-tagline {
+    font-size: 0.68rem;
+  }
+  .cart-text {
+    display: none;
+  }
+  .trust-badges {
+    grid-template-columns: 1fr;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .product-body {
+    padding: 10px;
+  }
+  .product-title {
+    font-size: 0.9rem;
+  }
+  .product-actions {
+    grid-template-columns: 1fr;
+  }
+  .btn-card-zalo {
+    grid-column: span 1;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .float-label {
+    font-size: 0.78rem;
+  }
+}
+  </style>
 </head>
 <body>
 
@@ -941,7 +3177,1005 @@
   <!-- =================================================================
        JAVASCRIPT LOGIC (ALL-IN-ONE)
        ================================================================= -->
-  <script src="js/app.js"></script>
+  <script>
+/**
+ * YẾN SÀO TÂN XUÂN - FRONTEND APPLICATION LOGIC (ALL-IN-ONE)
+ */
 
+// 1. CẤU HÌNH THƯƠNG HIỆU & DỮ LIỆU MỞ
+const BRAND_CONFIG = {
+  brandName: "Yến Sào Tân Xuân",
+  tagline: "Tinh Hoa Yến Việt – Trao Trọn Sức Khỏe Vàng",
+  phoneRaw: "0983799403",
+  phoneDisplay: "0983.799.403",
+  zaloUrl: "https://zalo.me/0983799403",
+  address: "[ĐỊA CHỈ SHOWROOM / NHÀ YẾN]",
+  email: "[EMAIL LIÊN HỆ]",
+  vsattpLicense: "[GIẤY CHỨNG NHẬN VSATTP SỐ]",
+  fanpage: "[FANPAGE FACEBOOK]"
+};
+
+// 2. DỮ LIỆU 12 SẢN PHẨM MẪU YẾN SÀO TÂN XUÂN
+const FALLBACK_PRODUCTS = [
+  {
+    id: "TX-TC01",
+    name: "Tổ Yến Tinh Chế Thượng Hạng Sợi Phồng (Hộp 100g)",
+    category: "yen-tinh-che",
+    categoryName: "Tổ Yến Tinh Chế",
+    weight: "100g",
+    targetUsage: ["Quà biếu sang trọng", "Bồi bổ người lớn tuổi", "Mẹ bầu & sau sinh"],
+    priceStatus: "3.600.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Hộp Táo đỏ Hàn Quốc, Đường phèn kết tinh tự nhiên & Túi giấy Hoàng Gia",
+    shortDesc: "Làm sạch lông hoàn toàn thủ công từ tổ yến già mùa, bề mặt đắp sợi dài phồng dày đẹp mắt, nở gấp 4-5 lần khi chưng.",
+    howToUse: "Ngâm nước sạch 20 phút cho tơi sợi, chưng cách thủy lửa nhỏ 20-25 phút, thêm đường phèn vào 5 phút cuối.",
+    image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80",
+    badge: "Bán chạy nhất"
+  },
+  {
+    id: "TX-TC02",
+    name: "Tổ Yến Tinh Chế Thượng Hạng (Hộp 50g)",
+    category: "yen-tinh-che",
+    categoryName: "Tổ Yến Tinh Chế",
+    weight: "50g",
+    targetUsage: ["Bồi bổ người lớn tuổi", "Mẹ bầu & sau sinh"],
+    priceStatus: "1.850.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Táo đỏ, Đường phèn kết tinh & Hộp quà sang trọng",
+    shortDesc: "Quy cách hộp 50g (khoảng 5-6 tai yến lớn), tiện lợi cho gia đình dùng thử hoặc bồi bổ định kỳ trong 1-2 tháng.",
+    howToUse: "Mỗi lần dùng 1/2 tai yến (khoảng 4g), ngâm 20 phút và chưng cách thủy 20 phút.",
+    image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80",
+    badge: "Ưa chuộng"
+  },
+  {
+    id: "TX-TC03",
+    name: "Yến Tinh Chế Sợi Ngắn Tiết Kiệm (Hộp 100g)",
+    category: "yen-tinh-che",
+    categoryName: "Tổ Yến Tinh Chế",
+    weight: "100g",
+    targetUsage: ["Bồi bổ người lớn tuổi", "Cho trẻ biếng ăn", "Mẹ bầu & sau sinh"],
+    priceStatus: "2.950.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: false,
+    gifts: "Tặng kèm Táo đỏ, Kỷ tử & Đường phèn kết tinh",
+    shortDesc: "Giữ trọn 100% giá trị dinh dưỡng của tổ yến nguyên chất nhưng chi phí tối ưu để sử dụng bồi bổ thường xuyên cho cả gia đình.",
+    howToUse: "Ngâm nước 15-20 phút, chưng cách thủy 20 phút cùng táo đỏ, hạt sen.",
+    image: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=700&q=80",
+    badge: "Tiết kiệm"
+  },
+  {
+    id: "TX-TC04",
+    name: "Yến Tinh Chế Viên Baby Chia Sẵn Khẩu Phần (Hộp 50g)",
+    category: "yen-tinh-che",
+    categoryName: "Tổ Yến Tinh Chế",
+    weight: "50g",
+    targetUsage: ["Cho trẻ biếng ăn", "Mẹ bầu & sau sinh"],
+    priceStatus: "1.650.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Đường phèn, Táo đỏ, Hạt chia hữu cơ",
+    shortDesc: "Được định hình thành từng viên nhỏ 1.5g - 2g vừa đúng 1 khẩu phần ăn của bé hoặc người lớn, không cần bẻ tổ khi chưng.",
+    howToUse: "Lấy 1-2 viên ngâm 15 phút trong chén sứ, chưng cách thủy 20 phút.",
+    image: "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=700&q=80",
+    badge: "Tiện lợi cho bé"
+  },
+  {
+    id: "TX-TH01",
+    name: "Tổ Yến Thô Nguyên Tổ Còn Lông Tuyển Chọn Loại 1 (Hộp 100g)",
+    category: "yen-tho",
+    categoryName: "Tổ Yến Thô & Nguyên Tổ",
+    weight: "100g",
+    targetUsage: ["Bồi bổ người lớn tuổi", "Mẹ bầu & sau sinh"],
+    priceStatus: "2.750.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Nhíp nhặt lông Inox chuyên dụng, Táo đỏ & Đường phèn",
+    shortDesc: "Tổ yến nguyên bản vừa thu hoạch, tai to dày, ít lông, giữ trọn mùi thơm tanh tự nhiên và độ dai giòn cao nhất.",
+    howToUse: "Ngâm nước 45-60 phút cho mềm sợi, dùng nhíp tặng kèm gắp sạch lông tơ trước khi đem chưng 25 phút.",
+    image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=700&q=80",
+    badge: "Nguyên bản 100%"
+  },
+  {
+    id: "TX-TH02",
+    name: "Chân Yến Thô Nguyên Chất Giòn Dai (Hộp 100g)",
+    category: "yen-tho",
+    categoryName: "Tổ Yến Thô & Nguyên Tổ",
+    weight: "100g",
+    targetUsage: ["Bồi bổ người lớn tuổi", "Mẹ bầu & sau sinh"],
+    priceStatus: "2.850.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: false,
+    gifts: "Tặng kèm Nhíp chuyên dụng, Táo đỏ & Đường phèn kết tinh",
+    shortDesc: "Phần chân đế vững chắc nhất của tổ yến, kết cấu đặc, rất ít lông, khi chưng nở cực nhiều và ăn giòn sần sật.",
+    howToUse: "Ngâm nước 60-90 phút cho nở hết từng lớp chân yến, làm sạch rồi chưng cách thủy 30 phút.",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80",
+    badge: "Giòn dai đặc biệt"
+  },
+  {
+    id: "TX-RL01",
+    name: "Yến Rút Lông Khô Nguyên Tổ Định Hình Xuất Khẩu (Hộp 100g)",
+    category: "yen-rut-long",
+    categoryName: "Yến Rút Lông Khô",
+    weight: "100g",
+    targetUsage: ["Quà biếu sang trọng", "Bồi bổ người lớn tuổi"],
+    priceStatus: "[GIÁ: Liên hệ 0983.799.403] (Hàng tuyển chọn)",
+    isSamplePrice: false,
+    featured: true,
+    gifts: "Tặng Hộp Quà Sơn Mài/Hoàng Gia, Táo đỏ, Kỷ tử, Đông trùng & Đường phèn",
+    shortDesc: "Tuyệt phẩm chọn từ 10% tổ yến thô đẹp nhất. Nghệ nhân phun sương rút lông khô không ngâm nước, giữ nguyên hình dáng võng bán nguyệt.",
+    howToUse: "Ngâm nước tinh khiết 30 phút, chưng cách thủy lửa nhỏ 25 phút.",
+    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=80",
+    badge: "Thượng hạng"
+  },
+  {
+    id: "TX-RL02",
+    name: "Yến Rút Lông Khô Thượng Hạng (Hộp 50g)",
+    category: "yen-rut-long",
+    categoryName: "Yến Rút Lông Khô",
+    weight: "50g",
+    targetUsage: ["Quà biếu sang trọng", "Bồi bổ người lớn tuổi"],
+    priceStatus: "2.350.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: false,
+    gifts: "Tặng kèm Hộp quà biếu cao cấp, Táo đỏ & Đường phèn",
+    shortDesc: "Sợi yến nguyên vẹn từ đầu đến cuối tai yến, đạt độ sạch trên 99%, sang trọng khi mở hộp làm quà biếu.",
+    howToUse: "Ngâm nước 25-30 phút, chưng cách thủy 25 phút.",
+    image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80",
+    badge: "Quà biếu"
+  },
+  {
+    id: "TX-CS01",
+    name: "Set 6 Hũ Yến Chưng Đường Phèn Truyền Thống (Hàm lượng 35% yến tươi)",
+    category: "yen-chung-san",
+    categoryName: "Yến Chưng Tươi & Chưng Sẵn",
+    weight: "Hộp 6 hũ",
+    targetUsage: ["Bồi bổ người lớn tuổi", "Mẹ bầu & sau sinh"],
+    priceStatus: "420.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Hộp xách quà lịch sự & Thiệp chúc sức khỏe",
+    shortDesc: "Chưng tươi mới mỗi ngày theo đơn đặt hàng, sợi yến đặc sánh, vị ngọt thanh nhẹ từ đường phèn kết tinh, thơm lát gừng tươi.",
+    howToUse: "Bật nắp dùng ngay. Ngon hơn khi ướp lạnh hoặc ngâm hũ vào nước ấm 5 phút trước khi dùng.",
+    image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80",
+    badge: "Chưng tươi mỗi ngày"
+  },
+  {
+    id: "TX-CS02",
+    name: "Set 6 Hũ Yến Chưng Đông Trùng Hạ Thảo & Táo Đỏ Hạt Sen",
+    category: "yen-chung-san",
+    categoryName: "Yến Chưng Tươi & Chưng Sẵn",
+    weight: "Hộp 6 hũ",
+    targetUsage: ["Quà biếu sang trọng", "Bồi bổ người lớn tuổi"],
+    priceStatus: "510.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: true,
+    gifts: "Tặng kèm Hộp quà biếu cứng cáp & Túi xách đồng bộ",
+    shortDesc: "Sự kết hợp hoàn hảo giữa sợi yến nguyên chất và Đông trùng hạ thảo thượng hạng, giúp bồi bổ phổi, ngủ ngon và phục hồi thể lực.",
+    howToUse: "Dùng trực tiếp 1 hũ/ngày vào buổi tối trước khi ngủ 45 phút.",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=80",
+    badge: "Phục hồi sức khỏe"
+  },
+  {
+    id: "TX-CS03",
+    name: "Set 6 Hũ Yến Chưng Dinh Dưỡng Cho Trẻ Em (Yến Kids Tân Xuân)",
+    category: "yen-chung-san",
+    categoryName: "Yến Chưng Tươi & Chưng Sẵn",
+    weight: "Hộp 6 hũ",
+    targetUsage: ["Cho trẻ biếng ăn"],
+    priceStatus: "390.000đ [GIÁ THAM KHẢO - CẬP NHẬT TRONG DATA]",
+    isSamplePrice: true,
+    featured: false,
+    gifts: "Tặng kèm Lịch theo dõi dinh dưỡng cho bé",
+    shortDesc: "Sợi yến được chưng mềm mịn vừa vặn với khả năng nhai nuốt của trẻ nhỏ, hỗ trợ bé ăn ngon, tăng đề kháng tự nhiên.",
+    howToUse: "Cho bé từ 1 tuổi trở lên dùng 2-3 hũ/tuần.",
+    image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=700&q=80",
+    badge: "Dành cho bé"
+  },
+  {
+    id: "TX-QB01",
+    name: "Hộp Quà Hoàng Gia Tân Xuân (Yến Rút Lông + Đông Trùng + Táo Đỏ)",
+    category: "qua-bieu",
+    categoryName: "Quà Biếu Thượng Hạng",
+    weight: "Set quà",
+    targetUsage: ["Quà biếu sang trọng", "Bồi bổ người lớn tuổi"],
+    priceStatus: "[GIÁ: Liên hệ 0983.799.403] (Thiết kế theo ngân sách)",
+    isSamplePrice: false,
+    featured: true,
+    gifts: "Miễn phí in thiệp/logo doanh nghiệp, Túi quà gấm đỏ – vàng kim cao cấp",
+    shortDesc: "Set quà biếu đối tác, cấp trên và cha mẹ dịp Lễ Tết. Thiết kế tông Đỏ Hoàng Gia – Vàng Kim sang trọng, xứng tầm người trao và người nhận.",
+    howToUse: "Liên hệ Zalo 0983.799.403 để tùy chọn định lượng 50g / 100g hoặc mix cùng hũ yến chưng sẵn.",
+    image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=80",
+    badge: "Quà biếu VIP"
+  }
+];
+
+// 3. STATE QUẢN LÝ ỨNG DỤNG
+const state = {
+  products: FALLBACK_PRODUCTS,
+  filteredProducts: [],
+  filters: {
+    searchQuery: "",
+    category: "all",
+    weights: [],
+    usages: [],
+    sortBy: "default"
+  },
+  cart: []
+};
+
+const CART_STORAGE_KEY = "yen_sao_tan_xuan_cart_v1";
+
+// 4. KHỞI TẠO KHI TRANG TẢI XONG
+document.addEventListener("DOMContentLoaded", () => {
+  applyBrandConfig();
+  loadCartFromStorage();
+  bindAllEvents();
+  applyFiltersAndRender();
+  renderCartUI();
+});
+
+function applyBrandConfig() {
+  const yearEl = document.getElementById("currentYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const mapIds = {
+    cfgAddress: BRAND_CONFIG.address,
+    cfgEmail: BRAND_CONFIG.email,
+    cfgLicense: BRAND_CONFIG.vsattpLicense,
+    cfgFanpage: BRAND_CONFIG.fanpage
+  };
+
+  Object.entries(mapIds).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  });
+}
+
+// 5. XỬ LÝ LỌC, TÌM KIẾM & SẮP XẾP TỨC THÌ
+function applyFiltersAndRender() {
+  const { searchQuery, category, weights, usages, sortBy } = state.filters;
+  const keyword = normalizeVietnamese(searchQuery.trim());
+
+  let result = state.products.filter((item) => {
+    if (category !== "all" && item.category !== category) {
+      return false;
+    }
+    if (weights.length > 0 && !weights.includes(item.weight)) {
+      return false;
+    }
+    if (usages.length > 0) {
+      const hasMatchingUsage = usages.some((u) => item.targetUsage.includes(u));
+      if (!hasMatchingUsage) return false;
+    }
+    if (keyword) {
+      const searchableText = normalizeVietnamese(
+        `${item.name} ${item.categoryName} ${item.weight} ${item.shortDesc} ${item.targetUsage.join(" ")}`
+      );
+      if (!searchableText.includes(keyword)) return false;
+    }
+    return true;
+  });
+
+  if (sortBy === "featured") {
+    result.sort((a, b) => Number(b.featured) - Number(a.featured));
+  } else if (sortBy === "name-asc") {
+    result.sort((a, b) => a.name.localeCompare(b.name, "vi"));
+  }
+
+  state.filteredProducts = result;
+  renderProductGrid();
+  updateFilterSummaryText();
+}
+
+function renderProductGrid() {
+  const gridEl = document.getElementById("productGrid");
+  const countEl = document.getElementById("productCountNum");
+  const emptyEl = document.getElementById("emptySearchState");
+
+  if (!gridEl) return;
+
+  countEl.textContent = state.filteredProducts.length;
+
+  if (state.filteredProducts.length === 0) {
+    gridEl.innerHTML = "";
+    emptyEl.hidden = false;
+    return;
+  }
+
+  emptyEl.hidden = true;
+
+  gridEl.innerHTML = state.filteredProducts
+    .map(
+      (product) => `
+      <article class="product-card" data-id="${product.id}">
+        <div class="product-thumb-wrap" data-action="detail" data-id="${product.id}">
+          ${product.badge ? `<span class="product-badge">${escapeHtml(product.badge)}</span>` : ""}
+          <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)} - Yến Sào Tân Xuân" loading="lazy">
+          <span class="product-sample-overlay">[ẢNH MINH HỌA MẪU]</span>
+        </div>
+
+        <div class="product-body">
+          <span class="product-cat-tag">${escapeHtml(product.categoryName)} • ${escapeHtml(product.weight)}</span>
+          <h3 class="product-title" data-action="detail" data-id="${product.id}">
+            ${escapeHtml(product.name)}
+          </h3>
+          <div class="product-spec">
+            <strong>Quy cách:</strong> ${escapeHtml(product.weight)} — ${escapeHtml(product.gifts)}
+          </div>
+
+          <div class="product-price-box">
+            <span class="price-value">${escapeHtml(product.priceStatus)}</span>
+            <span class="price-note">Cam kết 100% tổ yến nguyên chất</span>
+          </div>
+
+          <div class="product-actions">
+            <button type="button" class="btn-card-detail" data-action="detail" data-id="${product.id}">
+              Xem chi tiết
+            </button>
+            <button type="button" class="btn-card-cart" data-action="add-cart" data-id="${product.id}">
+              + Giỏ tư vấn
+            </button>
+            <button type="button" class="btn-card-zalo" data-action="buy-zalo" data-id="${product.id}">
+              💬 Tư vấn Zalo / Đặt mua
+            </button>
+          </div>
+        </div>
+      </article>
+    `
+    )
+    .join("");
+}
+
+function updateFilterSummaryText() {
+  const summaryEl = document.getElementById("activeFilterSummary");
+  if (!summaryEl) return;
+
+  const parts = [];
+  if (state.filters.searchQuery) parts.push(`từ khóa "${state.filters.searchQuery}"`);
+  if (state.filters.weights.length) parts.push(`quy cách ${state.filters.weights.join(", ")}`);
+  if (state.filters.usages.length) parts.push(`nhu cầu ${state.filters.usages.join(", ")}`);
+
+  summaryEl.textContent = parts.length > 0 ? `(Đang lọc theo: ${parts.join(" | ")})` : "";
+}
+
+// 6. GỢI Ý TÌM KIẾM TRỰC TIẾP
+function renderSearchSuggestions(query) {
+  const box = document.getElementById("searchSuggestions");
+  if (!box) return;
+
+  const clean = normalizeVietnamese(query.trim());
+  if (!clean) {
+    box.hidden = true;
+    box.innerHTML = "";
+    return;
+  }
+
+  const matches = state.products
+    .filter((p) =>
+      normalizeVietnamese(`${p.name} ${p.categoryName} ${p.weight}`).includes(clean)
+    )
+    .slice(0, 5);
+
+  if (matches.length === 0) {
+    box.innerHTML = `<div class="suggestion-item"><div class="suggestion-info"><div class="suggestion-title">Không tìm thấy "${escapeHtml(query)}" — Bấm để liên hệ Zalo 0983.799.403 tư vấn trực tiếp</div></div></div>`;
+    box.hidden = false;
+    return;
+  }
+
+  box.innerHTML = matches
+    .map(
+      (p) => `
+      <div class="suggestion-item" data-suggest-id="${p.id}">
+        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">
+        <div class="suggestion-info">
+          <div class="suggestion-title">${escapeHtml(p.name)}</div>
+          <div class="suggestion-meta">${escapeHtml(p.weight)} • ${escapeHtml(p.priceStatus)}</div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+  box.hidden = false;
+}
+
+// 7. MODAL XEM CHI TIẾT SẢN PHẨM
+function openProductModal(productId) {
+  const product = state.products.find((p) => p.id === productId);
+  if (!product) return;
+
+  const backdrop = document.getElementById("productModalBackdrop");
+  const content = document.getElementById("modalBodyContent");
+
+  content.innerHTML = `
+    <div class="modal-grid">
+      <div class="modal-image-col">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}">
+        <span class="modal-sample-caption">[ẢNH MINH HỌA MẪU - THAY BẰNG ẢNH CHỤP THỰC TẾ CỦA YẾN SÀO TÂN XUÂN]</span>
+      </div>
+
+      <div class="modal-detail-col">
+        <span class="modal-code-badge">Mã SP: ${escapeHtml(product.id)} | ${escapeHtml(product.categoryName)}</span>
+        <h2 class="modal-title" id="modalProductTitle">${escapeHtml(product.name)}</h2>
+
+        <div class="modal-price-box">
+          <strong>${escapeHtml(product.priceStatus)}</strong>
+          <span>Giao hàng toàn quốc – Mở hộp kiểm tra trước khi thanh toán</span>
+        </div>
+
+        <div class="modal-info-block">
+          <h4>📦 Quy cách & Quà tặng kèm tiêu chuẩn:</h4>
+          <p><strong>Đóng gói:</strong> ${escapeHtml(product.weight)} — ${escapeHtml(product.gifts)}</p>
+        </div>
+
+        <div class="modal-info-block">
+          <h4>✨ Đặc điểm nổi bật:</h4>
+          <p>${escapeHtml(product.shortDesc)}</p>
+        </div>
+
+        <div class="modal-info-block">
+          <h4>🥣 Hướng dẫn chưng giữ trọn dinh dưỡng:</h4>
+          <p>${escapeHtml(product.howToUse)}</p>
+        </div>
+
+        <div class="modal-info-block">
+          <h4>🎯 Phù hợp sử dụng:</h4>
+          <p>${product.targetUsage.map((u) => `<span class="modal-code-badge" style="margin-right:6px;">${escapeHtml(u)}</span>`).join("")}</p>
+        </div>
+
+        <div class="modal-cta-group">
+          <button type="button" class="btn btn-primary" data-modal-zalo="${product.id}">
+            💬 Đặt mua qua Zalo: 0983.799.403
+          </button>
+          <button type="button" class="btn btn-gold" data-modal-cart="${product.id}">
+            🛒 Thêm vào giỏ tư vấn
+          </button>
+          <a href="tel:0983799403" class="btn btn-outline-red">
+            📞 Gọi trực tiếp: 0983.799.403
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  backdrop.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeProductModal() {
+  const backdrop = document.getElementById("productModalBackdrop");
+  if (backdrop) backdrop.hidden = true;
+  document.body.style.overflow = "";
+}
+
+// 8. GIỎ HÀNG TƯ VẤN (LOCALSTORAGE -> ZALO / HOTLINE)
+function loadCartFromStorage() {
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    state.cart = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    state.cart = [];
+  }
+}
+
+function saveCartToStorage() {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.cart));
+  } catch (e) {}
+}
+
+function addToCart(productId) {
+  const product = state.products.find((p) => p.id === productId);
+  if (!product) return;
+
+  const existing = state.cart.find((item) => item.id === productId);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    state.cart.push({
+      id: product.id,
+      name: product.name,
+      weight: product.weight,
+      priceStatus: product.priceStatus,
+      image: product.image,
+      qty: 1
+    });
+  }
+
+  saveCartToStorage();
+  renderCartUI();
+  showToast(`Đã thêm "${product.name}" vào Giỏ tư vấn!`);
+}
+
+function updateCartQty(productId, delta) {
+  const item = state.cart.find((i) => i.id === productId);
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) {
+    state.cart = state.cart.filter((i) => i.id !== productId);
+  }
+
+  saveCartToStorage();
+  renderCartUI();
+}
+
+function removeFromCart(productId) {
+  state.cart = state.cart.filter((i) => i.id !== productId);
+  saveCartToStorage();
+  renderCartUI();
+}
+
+function clearCart() {
+  state.cart = [];
+  saveCartToStorage();
+  renderCartUI();
+  showToast("Đã làm trống giỏ tư vấn.");
+}
+
+function renderCartUI() {
+  const badgeEl = document.getElementById("cartCountBadge");
+  const containerEl = document.getElementById("cartItemsContainer");
+  const summaryTextarea = document.getElementById("cartOrderSummaryText");
+  const noteInput = document.getElementById("cartNoteInput");
+
+  const totalCount = state.cart.reduce((sum, item) => sum + item.qty, 0);
+  if (badgeEl) badgeEl.textContent = totalCount;
+
+  if (!containerEl) return;
+
+  if (state.cart.length === 0) {
+    containerEl.innerHTML = `
+      <div style="text-align:center; padding: 36px 12px; color:#555;">
+        <p style="font-size:2rem; margin-bottom:8px;">🧺</p>
+        <p><strong>Giỏ tư vấn của bạn đang trống</strong></p>
+        <p style="font-size:0.84rem; margin-top:4px;">Hãy bấm "+ Giỏ tư vấn" ở các sản phẩm bạn muốn hỏi giá hoặc đặt mua để tổng hợp gửi Zalo một lần.</p>
+      </div>
+    `;
+    if (summaryTextarea) {
+      summaryTextarea.value = "Chào Yến Sào Tân Xuân (0983.799.403), tôi cần tư vấn chọn mua tổ yến nguyên chất phù hợp.";
+    }
+    return;
+  }
+
+  containerEl.innerHTML = state.cart
+    .map(
+      (item) => `
+      <div class="cart-item">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}">
+        <div class="cart-item-info">
+          <div class="cart-item-title">${escapeHtml(item.name)}</div>
+          <div class="cart-item-spec">Quy cách: ${escapeHtml(item.weight)}</div>
+          <div>
+            <div class="cart-qty-controls">
+              <button type="button" class="cart-qty-btn" data-cart-dec="${item.id}">-</button>
+              <span class="cart-qty-val">${item.qty}</span>
+              <button type="button" class="cart-qty-btn" data-cart-inc="${item.id}">+</button>
+            </div>
+            <button type="button" class="cart-remove-btn" data-cart-del="${item.id}">Xóa</button>
+          </div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  updateGeneratedOrderMessage(noteInput ? noteInput.value : "");
+}
+
+function updateGeneratedOrderMessage(customNote = "") {
+  const summaryTextarea = document.getElementById("cartOrderSummaryText");
+  if (!summaryTextarea) return;
+
+  if (state.cart.length === 0) {
+    summaryTextarea.value = "Chào Yến Sào Tân Xuân (0983.799.403), tôi cần tư vấn chọn mua tổ yến nguyên chất.";
+    return;
+  }
+
+  const lines = state.cart.map(
+    (item, idx) => `${idx + 1}. [${item.id}] ${item.name} (${item.weight}) - Số lượng: ${item.qty}`
+  );
+
+  let msg = `Chào Yến Sào Tân Xuân (0983.799.403), tôi muốn tư vấn & đặt các sản phẩm sau:
+${lines.join("
+")}`;
+  if (customNote.trim()) {
+    msg += `
+Ghi chú: ${customNote.trim()}`;
+  }
+  summaryTextarea.value = msg;
+}
+
+async function handleDirectZaloConsult(productId) {
+  const product = state.products.find((p) => p.id === productId);
+  if (!product) return;
+
+  const message = `Chào Yến Sào Tân Xuân (0983.799.403), tôi cần tư vấn & báo giá sản phẩm: [${product.id}] ${product.name} (${product.weight}).`;
+  await copyTextToClipboard(message);
+  showToast(`Đã sao chép tên "${product.name}". Hãy dán (Paste) vào khung chat Zalo 0983.799.403!`);
+
+  setTimeout(() => {
+    window.open(BRAND_CONFIG.zaloUrl, "_blank", "noopener");
+  }, 450);
+}
+
+// 9. GẮN SỰ KIỆN TƯƠNG TÁC TOÀN TRANG
+function bindAllEvents() {
+  const searchInput = document.getElementById("searchInput");
+  const clearSearchBtn = document.getElementById("clearSearchBtn");
+  const searchSuggestions = document.getElementById("searchSuggestions");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      const val = e.target.value;
+      state.filters.searchQuery = val;
+      clearSearchBtn.hidden = val.length === 0;
+      applyFiltersAndRender();
+      renderSearchSuggestions(val);
+    });
+
+    searchInput.addEventListener("focus", (e) => {
+      if (e.target.value.trim()) renderSearchSuggestions(e.target.value);
+    });
+  }
+
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      state.filters.searchQuery = "";
+      clearSearchBtn.hidden = true;
+      searchSuggestions.hidden = true;
+      applyFiltersAndRender();
+    });
+  }
+
+  if (searchSuggestions) {
+    searchSuggestions.addEventListener("click", (e) => {
+      const item = e.target.closest("[data-suggest-id]");
+      if (item) {
+        const id = item.getAttribute("data-suggest-id");
+        searchSuggestions.hidden = true;
+        openProductModal(id);
+      } else {
+        window.open(BRAND_CONFIG.zaloUrl, "_blank", "noopener");
+      }
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (searchSuggestions && !e.target.closest(".header-search")) {
+      searchSuggestions.hidden = true;
+    }
+  });
+
+  document.querySelectorAll('input[name="category"]').forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      state.filters.category = e.target.value;
+      syncNavActiveCategory(e.target.value);
+      applyFiltersAndRender();
+    });
+  });
+
+  document.querySelectorAll('input[name="weight"]').forEach((cb) => {
+    cb.addEventListener("change", () => {
+      state.filters.weights = Array.from(
+        document.querySelectorAll('input[name="weight"]:checked')
+      ).map((el) => el.value);
+      applyFiltersAndRender();
+    });
+  });
+
+  document.querySelectorAll('input[name="usage"]').forEach((cb) => {
+    cb.addEventListener("change", () => {
+      state.filters.usages = Array.from(
+        document.querySelectorAll('input[name="usage"]:checked')
+      ).map((el) => el.value);
+      applyFiltersAndRender();
+    });
+  });
+
+  const sortSelect = document.getElementById("sortSelect");
+  if (sortSelect) {
+    sortSelect.addEventListener("change", (e) => {
+      state.filters.sortBy = e.target.value;
+      applyFiltersAndRender();
+    });
+  }
+
+  document.querySelectorAll(".quick-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      document.querySelectorAll(".quick-pill").forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+
+      if (pill.hasAttribute("data-quick-reset")) {
+        resetAllFilters();
+        return;
+      }
+
+      const usageVal = pill.getAttribute("data-quick-usage");
+      document.querySelectorAll('input[name="usage"]').forEach((cb) => {
+        cb.checked = cb.value === usageVal;
+      });
+      state.filters.usages = [usageVal];
+      applyFiltersAndRender();
+    });
+  });
+
+  const resetBtn = document.getElementById("resetFiltersBtn");
+  const emptyResetBtn = document.getElementById("emptyResetBtn");
+  if (resetBtn) resetBtn.addEventListener("click", resetAllFilters);
+  if (emptyResetBtn) emptyResetBtn.addEventListener("click", resetAllFilters);
+
+  document.querySelectorAll("[data-nav-cat]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const cat = link.getAttribute("data-nav-cat");
+      const kw = link.getAttribute("data-nav-keyword") || "";
+
+      state.filters.category = cat;
+      state.filters.searchQuery = kw;
+
+      const targetRadio = document.querySelector(`input[name="category"][value="${cat}"]`);
+      if (targetRadio) targetRadio.checked = true;
+      if (searchInput) {
+        searchInput.value = kw;
+        clearSearchBtn.hidden = kw.length === 0;
+      }
+
+      syncNavActiveCategory(cat);
+      closeMobileNav();
+      applyFiltersAndRender();
+    });
+  });
+
+  const productGrid = document.getElementById("productGrid");
+  if (productGrid) {
+    productGrid.addEventListener("click", (e) => {
+      const actionEl = e.target.closest("[data-action]");
+      if (!actionEl) return;
+
+      const action = actionEl.getAttribute("data-action");
+      const id = actionEl.getAttribute("data-id");
+
+      if (action === "detail") openProductModal(id);
+      if (action === "add-cart") addToCart(id);
+      if (action === "buy-zalo") handleDirectZaloConsult(id);
+    });
+  }
+
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const modalBackdrop = document.getElementById("productModalBackdrop");
+  if (closeModalBtn) closeModalBtn.addEventListener("click", closeProductModal);
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeProductModal();
+
+      const zaloBtn = e.target.closest("[data-modal-zalo]");
+      if (zaloBtn) {
+        handleDirectZaloConsult(zaloBtn.getAttribute("data-modal-zalo"));
+      }
+
+      const cartBtn = e.target.closest("[data-modal-cart]");
+      if (cartBtn) {
+        addToCart(cartBtn.getAttribute("data-modal-cart"));
+        closeProductModal();
+        openCartDrawer();
+      }
+    });
+  }
+
+  const openCartBtn = document.getElementById("openCartBtn");
+  const closeCartBtn = document.getElementById("closeCartBtn");
+  const cartBackdrop = document.getElementById("cartDrawerBackdrop");
+  const cartItemsContainer = document.getElementById("cartItemsContainer");
+  const cartNoteInput = document.getElementById("cartNoteInput");
+  const copyAndOpenZaloBtn = document.getElementById("copyAndOpenZaloBtn");
+  const clearCartBtn = document.getElementById("clearCartBtn");
+
+  if (openCartBtn) openCartBtn.addEventListener("click", openCartDrawer);
+  if (closeCartBtn) closeCartBtn.addEventListener("click", closeCartDrawer);
+  if (cartBackdrop) cartBackdrop.addEventListener("click", closeCartDrawer);
+
+  if (cartItemsContainer) {
+    cartItemsContainer.addEventListener("click", (e) => {
+      const inc = e.target.closest("[data-cart-inc]");
+      const dec = e.target.closest("[data-cart-dec]");
+      const del = e.target.closest("[data-cart-del]");
+
+      if (inc) updateCartQty(inc.getAttribute("data-cart-inc"), 1);
+      if (dec) updateCartQty(dec.getAttribute("data-cart-dec"), -1);
+      if (del) removeFromCart(del.getAttribute("data-cart-del"));
+    });
+  }
+
+  if (cartNoteInput) {
+    cartNoteInput.addEventListener("input", (e) => {
+      updateGeneratedOrderMessage(e.target.value);
+    });
+  }
+
+  if (copyAndOpenZaloBtn) {
+    copyAndOpenZaloBtn.addEventListener("click", async () => {
+      const summaryTextarea = document.getElementById("cartOrderSummaryText");
+      const text = summaryTextarea ? summaryTextarea.value : "";
+      await copyTextToClipboard(text);
+      showToast("Đã sao chép nội dung đơn hàng! Đang mở Zalo 0983.799.403...");
+      setTimeout(() => {
+        window.open(BRAND_CONFIG.zaloUrl, "_blank", "noopener");
+      }, 450);
+    });
+  }
+
+  if (clearCartBtn) clearCartBtn.addEventListener("click", clearCart);
+
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const closeMobileMenuBtn = document.getElementById("closeMobileMenuBtn");
+  const mobileMenuBackdrop = document.getElementById("mobileMenuBackdrop");
+
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", openMobileNav);
+  if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener("click", closeMobileNav);
+  if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener("click", closeMobileNav);
+
+  document.querySelectorAll(".mobile-sub-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".mobile-accordion-item");
+      const isOpen = parent.classList.toggle("open");
+      btn.textContent = isOpen ? "−" : "+";
+    });
+  });
+
+  const openFilterMobileBtn = document.getElementById("openFilterMobileBtn");
+  const closeFilterMobileBtn = document.getElementById("closeFilterMobileBtn");
+  const filterSidebar = document.getElementById("filterSidebar");
+
+  if (openFilterMobileBtn && filterSidebar) {
+    openFilterMobileBtn.addEventListener("click", () => {
+      filterSidebar.classList.add("open");
+    });
+  }
+  if (closeFilterMobileBtn && filterSidebar) {
+    closeFilterMobileBtn.addEventListener("click", () => {
+      filterSidebar.classList.remove("open");
+    });
+  }
+
+  const toggleSeoBtn = document.getElementById("toggleSeoArticleBtn");
+  const seoWrapper = document.getElementById("seoContentWrapper");
+  if (toggleSeoBtn && seoWrapper) {
+    toggleSeoBtn.addEventListener("click", () => {
+      const isExpanded = seoWrapper.classList.toggle("expanded");
+      toggleSeoBtn.querySelector("span").textContent = isExpanded
+        ? "Thu gọn bài viết cẩm nang"
+        : "Xem đầy đủ cẩm nang & bảng liều lượng";
+    });
+  }
+
+  document.querySelectorAll(".faq-question").forEach((qBtn) => {
+    qBtn.addEventListener("click", () => {
+      const item = qBtn.closest(".faq-item");
+      const answer = item.querySelector(".faq-answer");
+      const icon = qBtn.querySelector(".faq-icon");
+      const isOpen = item.classList.contains("active");
+
+      document.querySelectorAll(".faq-item").forEach((other) => {
+        other.classList.remove("active");
+        other.querySelector(".faq-answer").style.maxHeight = null;
+        other.querySelector(".faq-icon").textContent = "+";
+      });
+
+      if (!isOpen) {
+        item.classList.add("active");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.textContent = "−";
+      }
+    });
+  });
+}
+
+// 10. CÁC HÀM TIỆN ÍCH (HELPERS)
+function resetAllFilters() {
+  state.filters = {
+    searchQuery: "",
+    category: "all",
+    weights: [],
+    usages: [],
+    sortBy: "default"
+  };
+
+  const searchInput = document.getElementById("searchInput");
+  const clearSearchBtn = document.getElementById("clearSearchBtn");
+  const sortSelect = document.getElementById("sortSelect");
+
+  if (searchInput) searchInput.value = "";
+  if (clearSearchBtn) clearSearchBtn.hidden = true;
+  if (sortSelect) sortSelect.value = "default";
+
+  const allCatRadio = document.querySelector('input[name="category"][value="all"]');
+  if (allCatRadio) allCatRadio.checked = true;
+
+  document.querySelectorAll('input[name="weight"], input[name="usage"]').forEach((cb) => {
+    cb.checked = false;
+  });
+
+  document.querySelectorAll(".quick-pill").forEach((p, idx) => {
+    p.classList.toggle("active", idx === 0);
+  });
+
+  syncNavActiveCategory("all");
+  applyFiltersAndRender();
+}
+
+function syncNavActiveCategory(cat) {
+  document.querySelectorAll(".mega-nav .nav-link[data-nav-cat]").forEach((a) => {
+    a.classList.toggle("active", a.getAttribute("data-nav-cat") === cat);
+  });
+}
+
+function openCartDrawer() {
+  document.getElementById("cartDrawer").classList.add("open");
+  document.getElementById("cartDrawerBackdrop").hidden = false;
+}
+
+function closeCartDrawer() {
+  document.getElementById("cartDrawer").classList.remove("open");
+  document.getElementById("cartDrawerBackdrop").hidden = true;
+}
+
+function openMobileNav() {
+  document.getElementById("mobileNavDrawer").classList.add("open");
+  document.getElementById("mobileMenuBackdrop").hidden = false;
+}
+
+function closeMobileNav() {
+  document.getElementById("mobileNavDrawer").classList.remove("open");
+  document.getElementById("mobileMenuBackdrop").hidden = true;
+}
+
+function normalizeVietnamese(str) {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/đ/g, "d");
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+async function copyTextToClipboard(text) {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator. clipboard.writeText(text);
+      return;
+    }
+  } catch (e) {}
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  document.body.appendChild(temp);
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+function showToast(message) {
+  const container = document.getElementById("toastContainer");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = "toast-msg";
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3600);
+}
+  </script>
 </body>
 </html>
